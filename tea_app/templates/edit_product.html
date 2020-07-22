@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Admin Edit Product</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+        <a class="navbar-brand" href="/">The Tea House</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/admin/dashboard">Dashboard Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/products">Products<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <a class="btn btn-sm btn-light text-dark" href="/account/logout"
+                    role="button">Log off</a>
+        </div>
+    </nav>
+    <div class="mx-5 my-5">
+        <form action="/admin/products/edit/{{product.id}}" method="POST">
+            {%csrf_token%}
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Category:</label>
+                <div class="coll-sm-10 input-group w-25">
+                    <div class="input-group">
+                        <select class="custom-select" id="inputGroupSelect02" name="category">
+                            <option selected>Choose...</option>
+                            <option value="Green">Green</option>
+                            <option value="White">White</option>
+                            <option value="Oolong">Oolong</option>
+                            <option value="Puerh">Puerh</option>
+                            <option value="Yerba">Yerba</option>
+                            <option value="Herbal">Herbal</option>
+                            <option value="Yellow">Yellow</option>
+                            <option value="Black">Black</option>
+                        </select>
+                        <div class="input-group-append">
+                            <label class="input-group-text" for="inputGroupSelect02">Options</label>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Product name:</label>
+              <div class="col-sm-10">
+                <input type="text" name="name" class="form-control w-50" placeholder="{{product.name}}">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Description:</label>
+              <div class="col-sm-10">
+                <textarea class="form-control w-50" name="description" cols="30" rows="10">{{product.description}}</textarea>
+              </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Price:</label>
+                <div class="coll-sm-10 input-group w-25">
+                    <span>$ </span><input name="price" type="number" min="0.01" step="0.01" max="100">
+                </div>    
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Total inventory:</label>
+                <div class="coll-sm-10 input-group w-25">
+                    <input name="quantity" type="number" min="0" step="1">
+                </div>    
+            </div>
+            <div class="my-5">
+                <a class="btn btn-secondary mr-2" href="/admin/products" role="button">Cancel</a>
+                <button type="submit" class="btn btn-success">Edit</button>
+            </div>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

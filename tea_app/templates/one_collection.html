@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'style/tea_style.css' %}">
+    <title>The Tea House</title>
+</head>
+<body>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="/"><span class="large-fontsize">The Tea House</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link text-white active" href="/">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Collections
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="/collections/Green">Green</a>
+                    <a class="dropdown-item" href="/collections/White">White</a>
+                    <a class="dropdown-item" href="/collections/Oolong">Oolong</a>
+                    <a class="dropdown-item" href="/collections/Puerh">Puerh</a>
+                    <a class="dropdown-item" href="/collections/Yerba">Yerba</a>
+                    <a class="dropdown-item" href="/collections/Black">Black</a>
+                    <a class="dropdown-item" href="/collections/Yellow">Yellow</a>
+                    <a class="dropdown-item" href="/collections/Herbal">Herbal</a>
+                    
+                </div>
+            </li>
+            </ul>
+            <div class="form-inline my-2 my-lg-0">
+                {%if request.session.user_id %}
+                <a class="nav-link text-white" href="#">Welcome, {{request.session.first_name}}!</a>
+                <a class="nav-link text-white" href="/account/logout">Logout</a>
+                {%else%}
+                <a class="nav-link text-white" href="/account">Login</a>
+                {% endif %}
+                <a href="/cart">
+                   <img  id="cart-icon" src="{% static 'images/basket.png' %}">
+               </a>
+               <p id="cart-total">{{cartItems}}</p>
+   
+           </div>
+        </div>
+    </nav>
+    <div class="tea-image-collection">
+        <h1 class="tea-category">{{category.upper}}</h1>
+    </div>
+    <div class="row my-5 mr-2 ml-2">
+        {% for product in all_products%}
+        {% if  product.category == category %}
+        <div class="col-lg-3">
+            <!-- <div class="thumbnail">{{product.image.url}}</div> -->
+            <img class="thumbnail" src="{{product.image.url}}" alt="">
+            <!-- <img class="thumbnail" src="{% static 'images/jasmine.jpg' %}" alt=""> -->
+            <div class="product box">
+                <h6><strong>{{product.name}}</strong></h6>
+                <hr>
+                <a class="btn btn-outline-success" href="/add_to_cart/{{product.id}}/{{product.category}}">Add to Cart</a>
+                <!-- <a class="btn btn-outline-secondary" href="#">View</a> -->
+                <h4 style="display: inline-block; float: right">${{product.price}}</h4>
+                <hr>
+                <p>{{product.description}}</p>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

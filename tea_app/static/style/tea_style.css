@@ -1,0 +1,139 @@
+*{
+    font-family: "Josefin Slab", serif !important;
+}
+.large-fontsize{
+    font-size: 55px !important;
+    color: white !important;
+    
+}
+.navbar
+{
+    background-color: rgba(0,0,0,0.5);
+    
+}
+a:hover{
+    color: darkolivegreen !important;
+}
+.navbar-nav{
+    font-size: 25px !important;
+}
+body, html{
+    height: 100%;
+}
+.tea-image{
+    background-image: url(https://teahow.com/wp-content/uploads/2019/02/can-you-reuse-loose-leaf-tea-leaves.jpg);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+.tea-image-collection{
+    background-image: url(https://images.squarespace-cdn.com/content/v1/5895a99fe3df28d5835546ef/1486293345514-3G1C72VIZT03I6IQWT6J/ke17ZwdGBToddI8pDm48kNX21J0lj0t-bXR-XR1_1P0UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYy7Mythp_T-mtop-vrsUOmeInPi9iDjx9w8K4ZfjXt2dlw0xLU5M5oFHn97N5qwvJWS2UKx4Bw5_H5VqrHRcWRJ7zs2yPjc1ECvpa5Zm_kMqw/1a.jpg);
+    height: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+.category{
+    display: inline-block;
+    width: 20%;
+    padding-left: 5px;
+    height: max-content;
+}
+img:hover{
+    opacity: 0.5;
+}
+#cart-icon{
+	width:50px;
+	display: inline-block;
+    margin-left: 15px;
+}
+#cart-total{
+	display: block;
+	text-align: center;
+	color:#fff;
+	background-color: rgb(133, 58, 58);
+	width: 20px;
+	height: 25px;
+	border-radius: 50%;
+	font-size: 14px;
+}
+.box{
+	box-shadow:hsl(0, 0%, 80%) 0 0 16px;
+	background-color: #fff;
+	border-radius: 4px;
+    padding: 10px;
+    min-height: 250px;
+}
+
+.thumbnail{
+	width: 100%;
+	height: 200px;
+	-webkit-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+    -moz-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+    box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+}
+
+.product{
+	border-radius: 0 0 4px 4px;
+}
+.btn{
+    border-radius: 0;
+}
+.cart-row{
+	display: flex;
+    align-items: flex-stretch;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ececec;
+
+}
+.row-image{
+    width: 100px;
+}
+.quantity{
+	display: inline-block;
+	font-weight: 700;
+	padding-right:10px;
+	
+
+}
+.chg-quantity{
+	width: 12px;
+	cursor: pointer;
+	display: block;
+	margin-top: 5px;
+	transition:.1s;
+}
+
+.chg-quantity:hover{
+	opacity: .6;
+}
+.form-field{
+	width:250px;
+	display: inline-block;
+	padding: 5px;
+}
+.hidden{
+	display: none!important;
+}
+#heading-1{
+    padding-top: 120px;
+    padding-left: 120px;
+    font-style: oblique;
+}
+#heading-2{
+    margin-top: 200px;
+    margin-left: 1000px;
+    font-style: oblique;
+}
+.tea-category{
+    padding-top: 100px;
+    padding-left: 200px;
+}
+.heading-3{
+    padding-top: 100px;
+    padding-left: 200px;
+}

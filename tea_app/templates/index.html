@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'style/tea_style.css' %}">
+    <title>The Tea House</title>
+</head>
+<body>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="/"><span class="large-fontsize">The Tea House</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link text-white active" href="/">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Collections
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="/collections/Green">Green</a>
+                    <a class="dropdown-item" href="/collections/White">White</a>
+                    <a class="dropdown-item" href="/collections/Oolong">Oolong</a>
+                    <a class="dropdown-item" href="/collections/Puerh">Puerh</a>
+                    <a class="dropdown-item" href="/collections/Yerba">Yerba</a>
+                    <a class="dropdown-item" href="/collections/Black">Black</a>
+                    <a class="dropdown-item" href="/collections/Yellow">Yellow</a>
+                    <a class="dropdown-item" href="/collections/Herbal">Herbal</a>
+                    
+                </div>
+            </li>
+            </ul>
+            <div class="form-inline my-2 my-lg-0">
+                {%if request.session.user_id %}
+                <a class="nav-link text-white" href="#">Welcome, {{request.session.first_name}}!</a>
+                <a class="nav-link text-white" href="/account/logout">Logout</a>
+                {%else%}
+                <a class="nav-link text-white" href="/account">Login</a>
+                {% endif %}
+                <a href="/cart">
+                   <img  id="cart-icon" src="{% static 'images/basket.png' %}">
+               </a>
+               <p id="cart-total">0</p>
+   
+           </div>
+        </div>
+    </nav>
+    <div class="tea-image">
+        <div>
+            <h2 id="heading-1">CURATED LOOSE LEAF TEA</h2>
+            <h2 id="heading-2">FROM AROUND THE WORLD</h2>
+        </div>
+    </div>
+    <div class="my-5 text-center">
+        <h4>A CUP OF TEA</h4>
+        <h3>MAKES EVERYTHING</h3>
+        <h1>BETTER</h1>
+    </div>
+    <div class="my-3 ml-5">
+        <div class="mb-3 d-flex justify-content-center">
+            <div class="category">
+                <a href="/collections/Green"><img src="https://www.stylist.co.uk/images/app/uploads/2019/04/21103217/poetry-quotes-256x256.jpg?w=256&h=256&fit=max&auto=format%2Ccompress" alt=""><br></a>
+                <a class="text-secondary" href="/collections/Green"><h3>Green</h3></a>
+            </div>
+            <div class="category">
+                <a href="/collections/White"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple30/v4/64/ad/38/64ad38a0-d65b-cc68-c9e8-409adcf049e5/source/256x256bb.jpg" alt=""><br></a>
+                <a class="text-secondary" href="collections/White"><h3>White</h3></a>
+            </div>
+            <div class="category">
+                <a href="/collections/Black"><img src="https://www.stylist.co.uk/images/app/uploads/2019/04/21103217/poetry-quotes-256x256.jpg?w=256&h=256&fit=max&auto=format%2Ccompress" alt=""><br></a>
+                <a class="text-secondary" href="/collections/Black"><h3>Black</h3></a>
+            </div>
+            <div class="category">
+                <a href="/collections/Oolong"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple30/v4/64/ad/38/64ad38a0-d65b-cc68-c9e8-409adcf049e5/source/256x256bb.jpg" alt=""><br></a>
+                <a class="text-secondary"href="/collections/Oolong"><h3>Oolong</h3></a>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            <div class="category">
+                <a href="/collections/Puerh"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple30/v4/64/ad/38/64ad38a0-d65b-cc68-c9e8-409adcf049e5/source/256x256bb.jpg" alt=""><br></a>
+                <a class="text-secondary" href="/collections/Puerh"><h3>Pu'erh</h3></a>
+            </div>
+            <div class="category">
+                <a href="/collections/Yerba"><img src="https://www.stylist.co.uk/images/app/uploads/2019/04/21103217/poetry-quotes-256x256.jpg?w=256&h=256&fit=max&auto=format%2Ccompress" alt=""><br></a>
+                <a class="text-secondary" href="/collections/Yerba"><h3>Yerba</h3></a>
+            </div>
+            <div class="category">
+                <a href="/collections/Herbal"><img src="https://is1-ssl.mzstatic.com/image/thumb/Purple30/v4/64/ad/38/64ad38a0-d65b-cc68-c9e8-409adcf049e5/source/256x256bb.jpg" alt=""><br></a>
+                <a class="text-secondary" href="/collections/Herbal"><h3>Herbal</h3></a>
+            </div>
+            <div class="category">
+                <a href="/collections/Yellow"><img src="https://www.stylist.co.uk/images/app/uploads/2019/04/21103217/poetry-quotes-256x256.jpg?w=256&h=256&fit=max&auto=format%2Ccompress" alt=""><br></a>
+                <a class="text-secondary" href="/collections/Yellow"><h3>Yellow</h3></a>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

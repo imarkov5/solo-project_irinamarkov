@@ -1,0 +1,41 @@
+*{
+    font-family: "Josefin Slab", serif !important;
+}
+.large-fontsize{
+    font-size: 55px !important;
+    color: white !important;
+    
+}
+.navbar{
+    background-color: rgba(0,0,0,0.5);
+
+
+}
+a:hover{
+    color: darkolivegreen !important;
+}
+.navbar-nav{
+    font-size: 25px !important;
+}
+body, html{
+    height: 100%;
+}
+img:hover{
+    opacity: 0.5;
+}
+#cart-icon{
+	width:50px;
+	display: inline-block;
+    margin-left: 15px;
+}
+#cart-total{
+	display: block;
+	text-align: center;
+	color:#fff;
+	background-color: rgb(133, 58, 58);
+	width: 20px;
+	height: 25px;
+	border-radius: 50%;
+	font-size: 14px;
+}
+
